@@ -13,9 +13,10 @@
                 </ul>
             </div>
             @endif
-        <form action="/board" method="post">
+        <form action="/board/{{$form->id}}" method="post">
+        @method('patch')
     @csrf
-    <input type="hidden" name="user_id" value="1">
+    <input type="hidden" name="user_id" value="{{Auth::id()}}">
 
     <table>
         <tr>
@@ -23,7 +24,7 @@
                 <label for="title">お菓子名</label>
             </th>
             <td>
-                <input id="title" type="text" name="title" >
+                <input id="title" type="text" name="title" value="{{$form->title}}">
             </td>
 </tr>
 <tr>
@@ -32,7 +33,7 @@
         <label for="material">材料名</label>
     </th>
     <td>
-        <input id="material" type="text" name="material" >
+        <input id="material" type="text" name="material" value="{{$form->material}}">
     </td>
 </tr>
 <tr>
@@ -41,11 +42,11 @@
         <label for="recipe">作り方</label>
     </th>
     <td>
-        <textarea name="recipe" id="recipe" cols="30" rows="10"></textarea>
+        <textarea name="recipe" id="recipe" cols="30" rows="10">{{$form->recipe}}</textarea>
     </td>
 </tr>
 <tr><th></th>
-    <td><input type="submit" value="作成"></td>
+    <td><input type="submit" value="変更"></td>
 </tr>
 
     </table>

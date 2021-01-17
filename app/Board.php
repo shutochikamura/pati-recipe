@@ -14,4 +14,14 @@ class Board extends Model
         'recipe' => 'required'
     );
 
+    public function getData(){
+return $this->user->id;
+    }
+    public function getUser(){
+        return $this->user->name;
+    }
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
+
 }

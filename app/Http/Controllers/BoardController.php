@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Board;
 
 class BoardController extends Controller
 {
@@ -13,72 +14,52 @@ class BoardController extends Controller
      */
     public function index()
     {
-        return view('board.index');
+        $items = Board::all();
+        return view('board.index', compact('items'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('board.add');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, Board::$rules);
+        $post = new Board;
+        $form = $request->all();
+        unset($form['_token']);
+        $post->fill($form)->save();
+        return redirect('/board');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+
+        $item = Board::find($id);
+        return view('board.show', compact('item'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $form = Board::find($id);
+        return view('/board.edit', compact('form'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, Board::$rules);
+        $post = Board::find($id);
+        $form = $request->all();
+        unset($form['_token']);
+        $post->fill($form)->save();
+        return redirect('/board');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $post = Board::find($id);
+        $post->delete();
+        return redirect('/board');
     }
 }
