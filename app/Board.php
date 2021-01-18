@@ -8,11 +8,7 @@ class Board extends Model
 {
     protected $guarded = array('id');
 
-    public static $rules = array(
-        'title' => 'required',
-        'material' => 'required',
-        'recipe' => 'required'
-    );
+
 
     public function getData(){
 return $this->user->id;

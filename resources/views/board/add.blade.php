@@ -13,44 +13,51 @@
                 </ul>
             </div>
             @endif
-        <form action="/board" method="post">
-    @csrf
-    <input type="hidden" name="user_id" value="1">
+            <form action="/board" method="post">
+                @csrf
+                <input type="hidden" name="user_id" value="1">
 
-    <table>
-        <tr>
-            <th>
-                <label for="title">お菓子名</label>
-            </th>
-            <td>
-                <input id="title" type="text" name="title" >
-            </td>
-</tr>
-<tr>
+                <table>
+                    <tr>
+                        <th>
+                            <label for="title">お菓子名</label>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="input" id="title" type="text" name="title" value="{{old('title')}}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="material">材料名</label>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea class="textarea" name="material" id="material" cols="30" rows="10">{{old('material')}}</textarea>
 
-    <th>
-        <label for="material">材料名</label>
-    </th>
-    <td>
-        <input id="material" type="text" name="material" >
-    </td>
-</tr>
-<tr>
+                        </td>
+                    </tr>
+                    <tr>
 
-    <th>
-        <label for="recipe">作り方</label>
-    </th>
-    <td>
-        <textarea name="recipe" id="recipe" cols="30" rows="10"></textarea>
-    </td>
-</tr>
-<tr><th></th>
-    <td><input type="submit" value="作成"></td>
-</tr>
+                        <th>
+                            <label for="recipe">作り方</label>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea class="textarea" name="recipe" id="recipe" cols="30" rows="10">{{old('recipe')}}</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><input type="submit" value="作成"></th>
+                        <td></td>
+                    </tr>
 
-    </table>
+                </table>
 
-    </form>
+            </form>
         </div>
     </div>
 </div>

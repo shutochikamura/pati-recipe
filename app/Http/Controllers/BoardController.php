@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Board;
+use App\Http\Requests\BoardRequest;
 
 class BoardController extends Controller
 {
@@ -23,9 +24,9 @@ class BoardController extends Controller
         return view('board.add');
     }
 
-    public function store(Request $request)
+    public function store(BoardRequest $request)
     {
-        $this->validate($request, Board::$rules);
+
         $post = new Board;
         $form = $request->all();
         unset($form['_token']);
@@ -46,9 +47,9 @@ class BoardController extends Controller
         return view('/board.edit', compact('form'));
     }
 
-    public function update(Request $request, $id)
+    public function update(BoardRequest $request, $id)
     {
-        $this->validate($request, Board::$rules);
+
         $post = Board::find($id);
         $form = $request->all();
         unset($form['_token']);

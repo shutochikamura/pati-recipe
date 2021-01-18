@@ -23,6 +23,9 @@
 
             <th class="author">投稿者：{{$item->getUser()}}</th>
             @if($item->getData() === Auth::id())
+        </tr>
+            <tr>
+
             <td>
                 <form action="/board/{{$item->id}}/edit" method="get">
                     @csrf
