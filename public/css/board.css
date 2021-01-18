@@ -1,0 +1,98 @@
+textarea{
+    white-space: pre-wrap;
+}
+.textarea{
+    display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  max-height: 170px;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #e5e5e5;
+  font-size: 14px;
+  outline: none;
+  line-height: 1.6;
+  resize: vertical;
+}
+.input{
+    display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  height: 30px;
+  padding: 3px 12px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #e5e5e5;
+  font-size: 14px;
+  outline: none;
+  line-height: 1.6;
+}
+
+.card-body {
+    padding: 10px;
+    border-bottom: solid 3px whitesmoke;
+}
+
+.remove {
+    background-color: red;
+    color: white;
+}
+
+a {
+    font-size: 20px;
+    color: gray;
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
+h1 {
+    font-size: 25pt;
+    color: darkslategrey;
+}
+
+p {
+    font-size: 15pt;
+}
+
+.btn {
+    border-radius: 5pt;
+    font-size: 20px;
+    margin: 10px 0 0 20px;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn:hover {
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
+
+.frame {
+    float: center;
+    height: 400px;
+    padding: 10px;
+
+}
+
+.board-frame {
+    height: 250px;
+    margin: 30px;
+}
+
+.user-title {
+    font-size: auto;
+}
+
+.comment {
+    font-size: auto;
+}
+
+.author {
+    font-size: auto;
+}
